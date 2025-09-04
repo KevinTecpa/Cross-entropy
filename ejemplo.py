@@ -9,7 +9,7 @@ test_data = list(test_data)
 
 net=network.Network([784,30,10])
 
-net.SGD( training_data, 20, 10, test_data=test_data)
+net.SGD( training_data, 10, 10, test_data=test_data)
 
 archivo = open("red_prueba1.pkl",'wb')
 pickle.dump(net,archivo)
@@ -21,7 +21,7 @@ archivo_lectura = open('red_prueba.pkl','rb')
 net = pickle.load(archivo_lectura)
 archivo_lectura.close()
 
-net.SGD( training_data, 20, 50, 0.5, test_data=test_data)
+net.SGD( training_data, 10, 50, 0.5, test_data=test_data)
 
 archivo = open('red_prueba.pkl','wb')
 pickle.dump(net,archivo)
@@ -31,5 +31,6 @@ exit()
 #esquema de como usar la red :
 imagen = leer_imagen("disco.jpg")
 print(net.feedforward(imagen))
+
 
 
